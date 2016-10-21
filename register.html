@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="style.css">
+  <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script>
+                    function validate(field, query)
+                                    {
+                                                xmlhttp = new XMLHttpRequest(); // Creating Object
+                                                xmlhttp.onreadystatechange = function() // Checking if readyState changes
+                                                {
+                                                            if (xmlhttp.readyState!=4 && xmlhttp.status==200) // Validation Under Process
+                                                            {
+                                                                        document.getElementById(field).innerHTML = "Validating..";
+                                                            }
+                                                            else if (xmlhttp.readyState==4 && xmlhttp.status==200) // Validation Completed
+                                                            {
+                                                                        document.getElementById(field).innerHTML = xmlhttp.responseText;
+                                                            }
+                                                            else // If an error is encountered
+                                                            {
+                                                                        document.getElementById(field).innerHTML = "Unknown Error Occurred. <a href='indexmain.html'>Reload</a> the page.";
+                                                            }
+                                                }
+                                                xmlhttp.open("GET","check.php?field="+field+"&query="+query, false);
+                                                xmlhttp.send();
+                                    
+    }
+
+    function validatebox2() {
+    var fn2 = document.getElementById("fn2").value;
+    var fn3 = document.getElementById("fn3").value;
+    if(fn2!=fn3)
+    {
+        document.getElementById("error_fn2").innerHTML ="Passwords Do not Match!";
+        document.getElementById("error_fn2").style.color = "red";
+        document.getElementById("fn2").value ="";
+        document.getElementById("fn3").value ="";
+    }
+    else if(fn2.length<6)
+    {
+        document.getElementById("error_fn2").innerHTML ="Password should be  minimum 6 characters";
+        document.getElementById("error_fn2").style.color = "red";
+        document.getElementById("fn2").value ="";
+        document.getElementById("fn3").value ="";
+    }
+    else
+    {
+        document.getElementById("error_fn2").innerHTML ="Passwords Match!";
+        document.getElementById("error_fn2").style.color = "green";
+    }
+}
+      </script>
+</head>
+
+<body>
+    <form action="register.php" method="get">
+  <div class="container">
+    <section class="register">
+        <a href="indexmain.html">HOME</a>
+      <h1>Register and get your own number!</h1>
+    
+      <div class="reg_section personal_info">
+      <h3>Your Personal Information</h3>
+      <!--<input type="text" name="user" placeholder="Your Desired Username" onchange="validate('user', this.value)" required/> 
+      <label id="user">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>*/-->
+      <input type="text" name="email"  placeholder="Your E-mail Address" onchange="validate('email', this.value)" required/> 
+              <label id="email">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+      </div>
+      <div class="reg_section password">
+      <h3>Your Password</h3>
+      <input type="password" name="pass" id="fn2" value="" placeholder="Your Password" required>
+      <label id="dummy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+      <input type="password" name="confirm" id="fn3" value="" placeholder="Confirm Password" onblur="validatebox2()" required>
+      <label id="error_fn2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+      </div>
+          
+      <div class="reg_section password">
+     <p> <div> <label id="error_fn5"></label> </div> 
+      </div>
+      <p class="terms">
+        <label>
+           By clicking SignUp you agree to the <a href="privacy.html">privacy policy</a>  and <a href="terms.html">terms of service</a>.
+        </label>
+      </p>
+      <p class="submit"><input type="submit" name="commit" value="Sign Up" ></p>
+      
+      </form>
+    <br>
+    <a href="login.html">Already Registered Back to Login</a>
+    </section>
+  </div>
+</body>
+</html>

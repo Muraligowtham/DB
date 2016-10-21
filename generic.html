@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<!--
+	Intensify by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Telecommed- Welcome to the registration page.</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script>
+                    function validate(field, query)
+                                    {
+                                                xmlhttp = new XMLHttpRequest(); // Creating Object
+                                                xmlhttp.onreadystatechange = function() // Checking if readyState changes
+                                                {
+                                                            if (xmlhttp.readyState!=4 && xmlhttp.status==200) // Validation Under Process
+                                                            {
+                                                                        document.getElementById(field).innerHTML = "Validating..";
+                                                            }
+                                                            else if (xmlhttp.readyState==4 && xmlhttp.status==200) // Validation Completed
+                                                            {
+                                                                        document.getElementById(field).innerHTML = xmlhttp.responseText;
+                                                            }
+                                                            else // If an error is encountered
+                                                            {
+                                                                        document.getElementById(field).innerHTML = "Unknown Error Occurred. <a href='indexmain.html'>Reload</a> the page.";
+                                                            }
+                                                }
+                                                xmlhttp.open("GET","check.php?field="+field+"&query="+query, false);
+                                                xmlhttp.send();
+                                    
+    }
+
+    function validatebox2() {
+    var fn2 = document.getElementById("fn2").value;
+    var fn3 = document.getElementById("fn3").value;
+    if(fn2!=fn3)
+    {
+        document.getElementById("error_fn2").innerHTML ="Passwords Do not Match!";
+        document.getElementById("error_fn2").style.color = "red";
+        document.getElementById("fn2").value ="";
+        document.getElementById("fn3").value ="";
+    }
+    else if(fn2.length<6)
+    {
+        document.getElementById("error_fn2").innerHTML ="Password should be  minimum 6 characters";
+        document.getElementById("error_fn2").style.color = "red";
+        document.getElementById("fn2").value ="";
+        document.getElementById("fn3").value ="";
+    }
+    else
+    {
+        document.getElementById("error_fn2").innerHTML ="Passwords Match!";
+        document.getElementById("error_fn2").style.color = "green";
+    }
+}
+      </script>
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<nav class="left">
+					<a href="#menu"><span>Menu</span></a>
+				</nav>
+				<a href="index.html" class="logo">Telecommed</a>
+				<nav class="right">
+					<a href="#" class="button alt">Log in</a>
+				</nav>
+			</header>
+
+		<!-- Menu -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="generic.html">Generic</a></li>
+					<li><a href="elements.html">Elements</a></li>
+				</ul>
+				<ul class="actions vertical">
+					<li><a href="#" class="button fit">Login</a></li>
+				</ul>
+			</nav>
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<form action="register.php" method="get">
+		<div class="container">
+		<section class="register">
+        <a href="indexmain.html">HOME</a>
+		<h1>Register and get your own number!</h1>
+    
+		<div class="reg_section personal_info">
+		<h3>Your Personal Information</h3>
+		<!--<input type="text" name="user" placeholder="Your Desired Username" onchange="validate('user', this.value)" required/> 
+		<label id="user">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>*/-->
+		<input type="text" name="email"  placeholder="Your E-mail Address" onchange="validate('email', this.value)" required/> 
+        <label id="email">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+		</div>
+		<div class="reg_section password">
+		<h3>Your Password</h3>
+		<input type="password" name="pass" id="fn2" value="" placeholder="Your Password" required>
+		<label id="dummy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+		<input type="password" name="confirm" id="fn3" value="" placeholder="Confirm Password" onblur="validatebox2()" required>
+		<label id="error_fn2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+		</div>
+          
+		<div class="reg_section password">
+		<p> <div> <label id="error_fn5"></label> </div> 
+		</div>
+		<p class="terms">
+        <label>
+           By clicking SignUp you agree to the <a href="privacy.html">privacy policy</a>  and <a href="terms.html">terms of service</a>.
+        </label>
+		</p>
+		<p class="submit"><input type="submit" name="commit" value="Sign Up" ></p>
+      
+      </form>
+			</section>
+		</div>
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<h2>Get In Touch</h2>
+					<ul class="actions">
+						<li><span class="icon fa-phone"></span> <a href="#">(000) 000-0000</a></li>
+						<li><span class="icon fa-envelope"></span> <a href="#">information@untitled.tld</a></li>
+						<li><span class="icon fa-map-marker"></span> 123 Somewhere Road, Nashville, TN 00000</li>
+					</ul>
+				</div>
+				<div class="copyright">
+					&copy; Untitled. Design <a href="https://templated.co">TEMPLATED</a>. Images <a href="https://unsplash.com">Unsplash</a>.
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

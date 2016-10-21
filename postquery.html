@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Post query</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+         <link rel="stylesheet" href="style.css">
+                      <style>
+		* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+          box-sizing: border-box;
+}
+ 
+ 
+.pic {
+  border: 5px solid #fff;  
+  float: left;
+  height: 300px;
+  width: 300px;
+  margin: 5px;
+  overflow: hidden;
+   
+  -webkit-box-shadow: 10px 10px 10px #f778a1;
+          box-shadow: 10px 10px 10px #f778a1;  
+}
+.pic1 {
+  border: 5px solid #fff;  
+  float: left;
+  height: 300px;
+  width: 300px;
+  margin: 5px;
+  overflow: hidden;  
+}
+
+.morph {
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+}
+ 
+.morph:hover{
+	border:70px solid #f778a1;
+	border-radius:50%;
+	}
+        h2{
+            color: purple;
+        }
+</style>
+    </head>
+    <body>
+        <form action="insertquestion.php" method="get">
+        <div class="container">
+    <section class="register">
+        <a href="mainpage1.php">HOME</a>
+        <center><h2>POst A QueRY </h2>
+        <div class="head_wrapper">
+            <textarea  name="question" ></textarea>
+        </div>
+        <h2>Tag Your Question</h2>
+        <select name="tag">
+            <option>C</option>
+             <option>C++</option>
+              <option>JAVA</option>
+        </select>
+        <button name="postquery" class="buttonscrolly">Post Query</button>
+        
+       </center>
+        
+        
+    </section>
+        </div>
+        </form>
+    </body>
+</html>
