@@ -5,7 +5,7 @@ $field= $_GET['field']; // holds the name of field
 $re="/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/";
 if($field == "user")
 {
-$con=mysqli_connect("localhost", "root","") or die("No connection");
+$con=mysqli_connect("localhost:3306", "root","secret") or die("No connection");
 mysqli_select_db($con,"test") or die ("DATABASE not availabel");
 $sql1="select * from users where username like '$query'";
 //$ress1=  mysqli_query($con,$sql1);
